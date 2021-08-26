@@ -10,7 +10,8 @@ import com.example.myapplication.R
 class MainActivity : AppCompatActivity() {
 
     private lateinit var button: Button
-    private lateinit var text: Button
+    //private lateinit var text: Button
+    private lateinit var text: TextView
     private val model: MainViewModel by viewModels()
     private val url = "https://github.com/MoAmrYehia/Tiva/archive/refs/heads/main.zip"
 
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         //connect view model with the activity
         val newProgress = Observer<Int> { newValue ->
-            this.text.text = newValue.toString()
+            this.text.setText("completed..."+newValue.toString()+"%")
+            //this.text.text = newValue.toString()
         }
         model.progressLiveData.observe(this, newProgress)
 
