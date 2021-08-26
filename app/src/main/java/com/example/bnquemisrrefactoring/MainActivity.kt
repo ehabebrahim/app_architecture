@@ -29,7 +29,11 @@ class MainActivity : AppCompatActivity() {
         model.progressLiveData.observe(this, newProgress)
 
         // TODO BASSAM: "Create another observer for another LiveData for Button state"
-
+        
+        val newButtonState = Observer<String>{    newValue->
+            button.setText(newValue)
+        }
+        model.buttonState.observe(this, newButtonState)
 
         this.button.setOnClickListener {
 
