@@ -8,6 +8,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application), A
 
     val progressLiveData = MutableLiveData<Int>()
     // TODO BASSAM: "Create another live data for Button state"
+    val buttonState = MutableLiveData<String>()
 
 
     fun start() {
@@ -18,14 +19,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application), A
 
     override fun onStart() {
         // TODO BASSAM: "update live data for button to be disabled"
+        buttonState.value = "Pause"
     }
 
     override fun onFinish() {
         // TODO BASSAM: "update live data for button to be enabled again"
+        buttonState.value = "Download"
     }
 
     override fun onProgress(progress: Int) {
         // TODO BASSAM: "Update live data progress"
+        progressLiveData.value = progress
     }
 
 
