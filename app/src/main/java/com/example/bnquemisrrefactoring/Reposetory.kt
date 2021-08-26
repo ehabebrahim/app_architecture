@@ -112,7 +112,9 @@ class Reposetory : AsyncTask<String?, Int?, String?> {
 //        TODO BASSAM: "Bad practice to access views in repository"
 //        //send data to the live data
 //        textEdit.setText(values[0]!!)
-        values[0]?.let { delegate.onProgress(it) }
+        values[0]?.let { 
+            delegate.onProgress(it) 
+        }
     }
 
     override fun onPostExecute(result: String?) {
