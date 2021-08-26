@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 
 class MainViewModel(application: Application) : AndroidViewModel(application), AsyncResponce {
 
+    private val url = "https://github.com/MoAmrYehia/Tiva/archive/refs/heads/main.zip"
     val progressLiveData = MutableLiveData<Int>()
     // TODO BASSAM: "Create another live data for Button state"
     val buttonState = MutableLiveData<String>()
@@ -14,7 +15,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application), A
     fun start() {
 
         // here we started the repository to download, and give it the implementation of `AsyncResponce` to get download result
-        Reposetory(getApplication(), this).execute()
+        Reposetory(getApplication(), this).execute(url)
     }
 
     override fun onStart() {
